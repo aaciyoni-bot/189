@@ -1,12 +1,12 @@
+<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>עמותת חטיבת נגבה 189 | האתר הרשמי</title>
+    <title>עמותת חטיבת נגבה 189 | משפחה אחת. דרך אחת.</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <!-- פונטים מודרניים - Rubik ו-Assistant -->
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Rubik:ital,wght@0,300;0,400;0,700;0,900;1,900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -20,7 +20,8 @@
                             green: '#3d441e',
                             light: '#6b705c',
                             yellow: '#facc15',
-                            dark: '#1a1d0b',
+                            dark: '#0f1108',
+                            brown: '#5c3a21',
                             gold: '#b45309'
                         }
                     }
@@ -29,177 +30,165 @@
         }
     </script>
     <style>
-        body { font-family: 'Assistant', sans-serif; }
-        h1, h2, h3, h4, .font-heading { font-family: 'Rubik', sans-serif; }
         html { scroll-behavior: smooth; }
-        .hero-overlay {
-            background: linear-gradient(rgba(26, 29, 11, 0.85), rgba(26, 29, 11, 0.85)), 
-                        url('https://images.unsplash.com/photo-1547234935-80c7145ec969?q=80&w=2074&auto=format&fit=crop');
-            background-size: cover; background-position: center; background-attachment: fixed;
+        body { font-family: 'Assistant', sans-serif; background-color: #0f1108; }
+        h1, h2, h3, h4 { font-family: 'Rubik', sans-serif; }
+
+        .bg-infantry {
+            background: linear-gradient(rgba(15, 17, 8, 0.7), rgba(15, 17, 8, 0.9)), 
+                        url('https://images.unsplash.com/photo-1590401416653-53530646199e?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover; background-position: center;
         }
-        .card-modern { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .card-modern:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .bg-humvee {
+            background: linear-gradient(rgba(15, 17, 8, 0.8), rgba(15, 17, 8, 0.8)), 
+                        url('https://images.unsplash.com/photo-1533069129528-79659b8be56d?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover; background-position: center;
+        }
+        .bg-maneuver {
+            background: linear-gradient(rgba(15, 17, 8, 0.85), rgba(15, 17, 8, 0.85)), 
+                        url('https://images.unsplash.com/photo-1547234935-80c7145ec969?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover; background-position: center;
+        }
+        .bg-cqb {
+            background: linear-gradient(rgba(15, 17, 8, 0.9), rgba(15, 17, 8, 0.9)), 
+                        url('https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover; background-position: center;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-dark {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .section-divider {
+            height: 4px;
+            background: linear-gradient(to left, transparent, #facc15, transparent);
+            width: 100%;
+        }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body class="text-white">
 
-    <!-- Navbar - מיושר וממורכז -->
-    <nav class="bg-white shadow-xl fixed w-full z-50 top-0 border-b-4 border-idf-yellow h-28 flex items-center">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
-            <!-- ימין: לוגו מוגדל -->
+    <!-- Header / Nav -->
+    <nav class="fixed w-full z-50 top-0 h-28 flex items-center bg-idf-dark/90 border-b border-idf-yellow/30 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
             <div class="flex items-center gap-6 shrink-0">
-                <div class="bg-white p-2 rounded-xl shadow-inner border border-slate-100 h-24 w-24 flex items-center justify-center overflow-hidden">
+                <div class="bg-white p-2 rounded-2xl shadow-2xl h-24 w-24 flex items-center justify-center overflow-hidden transform hover:scale-105 transition duration-300">
                     <img src="logo.png" alt="לוגו" class="max-h-full max-w-full object-contain" 
-                         onerror="this.src='https://via.placeholder.com/120?text=189'">
+                         onerror="this.src='https://via.placeholder.com/150x150?text=189'">
                 </div>
                 <div class="hidden sm:block">
-                    <h1 class="font-black text-2xl md:text-3xl text-idf-dark leading-none tracking-tight">עמותת חטיבת נגבה (189)</h1>
-                    <p class="text-idf-gold font-bold text-sm mt-1 tracking-widest uppercase">משפחה אחת. דרך אחת.</p>
+                    <h1 class="font-black text-2xl md:text-4xl text-white tracking-tighter leading-none">עמותת חטיבת נגבה (189)</h1>
+                    <p class="text-idf-yellow font-bold text-sm md:text-base mt-2 tracking-[0.2em] uppercase">משפחה אחת. דרך אחת.</p>
                 </div>
             </div>
-
-            <!-- מרכז: ניווט -->
             <div class="hidden lg:flex items-center gap-10 font-bold text-lg">
-                <a href="#vision" class="text-idf-dark hover:text-idf-gold transition">חזון</a>
-                <a href="#management" class="text-idf-dark hover:text-idf-gold transition">הנהלה</a>
-                <a href="#battalions" class="text-idf-dark hover:text-idf-gold transition">גדודים</a>
-            </div>
-
-            <!-- שמאל: כפתור בולט -->
-            <div class="shrink-0">
-                <a href="#recruit" class="bg-idf-green text-white px-8 py-3 rounded-2xl font-black hover:bg-idf-dark transition shadow-lg block">התגייסו לחטיבה</a>
+                <a href="#vision" class="hover:text-idf-yellow transition underline-offset-8 hover:underline">חזון</a>
+                <a href="#management" class="hover:text-idf-yellow transition underline-offset-8 hover:underline">הנהלה</a>
+                <a href="#battalions" class="hover:text-idf-yellow transition underline-offset-8 hover:underline">גדודים</a>
+                <a href="#recruit" class="bg-idf-yellow text-idf-dark px-10 py-3 rounded-2xl font-black hover:bg-white transition shadow-[0_0_20px_rgba(250,204,21,0.4)]">התגייסו לחטיבה</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-overlay min-h-[80vh] flex items-center justify-center text-center text-white pt-28">
-        <div class="max-w-5xl px-6">
-            <h2 class="text-6xl md:text-8xl font-black mb-8 leading-tight drop-shadow-2xl">"מהנגב באנו,<br><span class="text-idf-yellow italic">על הנגב נגן"</span></h2>
-            <p class="text-2xl md:text-3xl mb-12 text-gray-200 font-light max-w-3xl mx-auto">
-                הבית הקהילתי של לוחמי ומפקדי חטיבה 189.<br>
-                <strong>בונים קהילה חזקה ותומכת במילואים ובאזרחות.</strong>
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-6">
-                <a href="#join" class="bg-idf-yellow text-idf-dark font-black text-2xl px-12 py-5 rounded-2xl hover:scale-105 transition shadow-2xl">הרשמה לעמותה</a>
-                <a href="#vision" class="bg-white/10 border-2 border-white/30 backdrop-blur-md text-white font-black text-2xl px-12 py-5 rounded-2xl hover:bg-white/20 transition">פעילות העמותה</a>
+    <!-- Hero / Infantry Intro -->
+    <section class="bg-infantry min-h-screen flex items-center pt-28">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="text-right">
+                <span class="inline-block px-4 py-1 bg-idf-yellow text-idf-dark font-black rounded-lg text-sm mb-6 uppercase tracking-widest animate-pulse">מהנגב באנו, על הנגב נגן</span>
+                <h2 class="text-6xl md:text-8xl font-black mb-8 leading-tight tracking-tighter italic">
+                    הכוח שלנו הוא <br><span class="text-idf-yellow underline decoration-idf-yellow/30">האנשים שלנו.</span>
+                </h2>
+                <p class="text-2xl md:text-3xl text-gray-300 font-light leading-relaxed mb-12">
+                    עמותת חטיבת המילואים 189 בונה קהילה לוחמת ותומכת - משדה הקרב ועד הבית.
+                </p>
+                <div class="flex flex-wrap gap-6">
+                    <a href="#join" class="px-12 py-5 bg-white text-idf-dark font-black text-xl rounded-2xl hover:bg-idf-yellow transition shadow-2xl">מילוי טופס חבר</a>
+                    <a href="#projects" class="px-12 py-5 border-2 border-white/20 backdrop-blur-md text-white font-black text-xl rounded-2xl hover:bg-white/10 transition">פעילות העמותה</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- הוועד המנהל -->
-    <section id="management" class="py-24 bg-white">
+    <!-- NGO Projects / Humvee Background -->
+    <section id="projects" class="bg-humvee py-32 relative">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-20">
-                <h2 class="text-5xl font-black text-idf-dark italic tracking-tighter">הוועד המנהל</h2>
-                <p class="text-xl text-slate-500 mt-4 font-light italic">הנהגת העמותה המובילה את החזון והעשייה</p>
-                <div class="h-1.5 w-24 bg-idf-yellow mx-auto mt-6 rounded-full"></div>
+            <div class="mb-20">
+                <h2 class="text-5xl font-black italic tracking-tighter mb-4">העורף של הלוחמים</h2>
+                <p class="text-xl text-idf-yellow font-bold opacity-80 uppercase tracking-widest">משימות העמותה בשגרה ובחירום</p>
+                <div class="h-1 w-32 bg-idf-yellow mt-4"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- יו"ר -->
-                <div class="p-8 rounded-[2.5rem] bg-slate-50 border-4 border-dashed border-slate-200 flex flex-col items-center justify-center min-h-[280px]">
-                    <div class="w-20 h-20 bg-slate-200 rounded-full flex items-center justify-center text-slate-400 text-4xl mb-4"><i class="fa-solid fa-crown"></i></div>
-                    <h3 class="text-2xl font-black text-slate-400 italic">יו"ר העמותה</h3>
-                    <p class="text-sm text-gray-400 mt-2 font-bold uppercase tracking-widest">[בתהליך מינוי]</p>
+                <!-- Activity Card -->
+                <div class="glass p-10 rounded-[2.5rem] card-modern">
+                    <div class="w-16 h-16 bg-idf-yellow/20 text-idf-yellow rounded-2xl flex items-center justify-center text-3xl mb-8 shadow-[0_0_20px_rgba(250,204,21,0.1)]">
+                        <i class="fa-solid fa-truck-pickup"></i>
+                    </div>
+                    <h3 class="text-2xl font-black mb-4">ניידת ת"ש</h3>
+                    <p class="text-gray-400 text-lg leading-relaxed">ניידת המגיעה לקווי הלחימה ולשטחי הכינוס עם ציוד לוגיסטי ופינוקים לשמירה על המורל.</p>
                 </div>
 
-                <!-- חברים -->
-                <div class="card-modern p-8 rounded-[2.5rem] bg-white border border-slate-100 shadow-sm text-center">
-                    <div class="w-16 h-16 bg-idf-green/10 text-idf-green rounded-2xl flex items-center justify-center text-3xl mb-6 mx-auto"><i class="fa-solid fa-user"></i></div>
-                    <h3 class="text-2xl font-black text-idf-dark">יואב הנר</h3>
-                    <p class="text-idf-gold font-bold mb-4 italic">חבר ועד</p>
-                    <p class="text-slate-500 text-sm leading-relaxed">תיאור קצר על תפקידו ופועלו של יואב בעמותה ובחטיבה.</p>
+                <div class="glass p-10 rounded-[2.5rem] card-modern">
+                    <div class="w-16 h-16 bg-idf-yellow/20 text-idf-yellow rounded-2xl flex items-center justify-center text-3xl mb-8 shadow-[0_0_20px_rgba(250,204,21,0.1)]">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <h3 class="text-2xl font-black mb-4">רווחה ומשפחה</h3>
+                    <p class="text-gray-600 text-lg leading-relaxed">ימי משפחה, מתנות הוקרה ונופשים יחידתיים לחיזוק התא המשפחתי המלווה את הלוחם.</p>
                 </div>
 
-                <div class="card-modern p-8 rounded-[2.5rem] bg-white border border-slate-100 shadow-sm text-center">
-                    <div class="w-16 h-16 bg-idf-green/10 text-idf-green rounded-2xl flex items-center justify-center text-3xl mb-6 mx-auto"><i class="fa-solid fa-user"></i></div>
-                    <h3 class="text-2xl font-black text-idf-dark">יהונתן פרידמן</h3>
-                    <p class="text-idf-gold font-bold mb-4 italic">חבר ועד</p>
-                    <p class="text-slate-500 text-sm leading-relaxed">תיאור קצר על תפקידו ופועלו של יהונתן בעמותה ובחטיבה.</p>
+                <div class="glass p-10 rounded-[2.5rem] card-modern">
+                    <div class="w-16 h-16 bg-idf-yellow/20 text-idf-yellow rounded-2xl flex items-center justify-center text-3xl mb-8 shadow-[0_0_20px_rgba(250,204,21,0.1)]">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-2xl font-black mb-4">נטוורקינג</h3>
+                    <p class="text-gray-400 text-lg leading-relaxed">חיבור עסקי ותעסוקתי בין חברי העמותה באזרחות, סיוע במציאת קריירה וקידום הדדי.</p>
                 </div>
 
-                <div class="card-modern p-8 rounded-[2.5rem] bg-white border border-slate-100 shadow-sm text-center">
-                    <div class="w-16 h-16 bg-idf-green/10 text-idf-green rounded-2xl flex items-center justify-center text-3xl mb-6 mx-auto"><i class="fa-solid fa-user"></i></div>
-                    <h3 class="text-2xl font-black text-idf-dark">דני בלובשטיין</h3>
-                    <p class="text-idf-gold font-bold mb-4 italic">חבר ועד</p>
-                    <p class="text-slate-500 text-sm leading-relaxed">תיאור קצר על תפקידו ופועלו של דני בעמותה ובחטיבה.</p>
-                </div>
-
-                <div class="card-modern p-8 rounded-[2.5rem] bg-white border border-slate-100 shadow-sm text-center">
-                    <div class="w-16 h-16 bg-idf-green/10 text-idf-green rounded-2xl flex items-center justify-center text-3xl mb-6 mx-auto"><i class="fa-solid fa-user"></i></div>
-                    <h3 class="text-2xl font-black text-idf-dark">בר נוימן</h3>
-                    <p class="text-idf-gold font-bold mb-4 italic">חבר ועד</p>
-                    <p class="text-slate-500 text-sm leading-relaxed">תיאור קצר על תפקידו ופועלו של בר בעמותה ובחטיבה.</p>
-                </div>
-
-                <!-- מבקרת העמותה -->
-                <div class="card-modern p-8 rounded-[2.5rem] bg-idf-dark text-white text-center shadow-2xl">
-                    <div class="w-16 h-16 bg-idf-yellow text-idf-dark rounded-2xl flex items-center justify-center text-3xl mb-6 mx-auto"><i class="fa-solid fa-user-shield"></i></div>
-                    <h3 class="text-2xl font-black">רו"ח גל אדווה</h3>
-                    <p class="text-idf-yellow font-bold mb-4 italic">מבקרת העמותה</p>
-                    <p class="text-gray-400 text-sm leading-relaxed font-light">אחראית על הביקורת והתנהלותה התקינה של העמותה.</p>
-                </div>
-
-                <!-- פנוי -->
-                <div class="p-8 rounded-[2.5rem] bg-slate-50 border-2 border-dashed border-slate-200 flex flex-col items-center justify-center text-slate-400">
-                    <h3 class="text-xl font-bold">חבר ועד</h3>
-                    <p class="text-xs font-bold uppercase tracking-widest mt-2 italic">[למילוי]</p>
-                </div>
-                <div class="p-8 rounded-[2.5rem] bg-slate-50 border-2 border-dashed border-slate-200 flex flex-col items-center justify-center text-slate-400">
-                    <h3 class="text-xl font-bold">חבר ועד</h3>
-                    <p class="text-xs font-bold uppercase tracking-widest mt-2 italic">[למילוי]</p>
+                <div class="glass p-10 rounded-[2.5rem] card-modern">
+                    <div class="w-16 h-16 bg-idf-yellow/20 text-idf-yellow rounded-2xl flex items-center justify-center text-3xl mb-8 shadow-[0_0_20px_rgba(250,204,21,0.1)]">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <h3 class="text-2xl font-black mb-4">מועדון צרכנות</h3>
+                    <p class="text-gray-400 text-lg leading-relaxed">כוח קנייה מאוחד המעניק הטבות בלעדיות וחיסכון משמעותי לחברי העמותה ומשפחותיהם.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- אנשי קשר וצוות ביצועי -->
-    <section class="py-24 bg-idf-dark text-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
-                <!-- צוות העמותה -->
-                <div>
-                    <h2 class="text-4xl font-black mb-12 text-idf-yellow italic tracking-tighter">צוות מוביל</h2>
-                    <div class="space-y-6">
-                        <div class="flex justify-between items-center p-6 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition">
-                            <span class="font-bold text-xl">מנכ"ל העמותה</span>
-                            <span class="text-idf-gold font-bold italic">[פנוי]</span>
+    <!-- Symbol Section -->
+    <section id="symbol" class="py-32 bg-idf-dark">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-20">
+            <div class="w-full lg:w-1/2 flex justify-center">
+                <div class="bg-white p-12 rounded-[3.5rem] shadow-[0_0_60px_rgba(255,255,255,0.05)] transform hover:rotate-2 transition duration-500">
+                    <img src="logo.png" alt="סמל העמותה" class="w-full max-w-sm h-auto" onerror="this.src='https://via.placeholder.com/400x400?text=LOGO'">
+                </div>
+            </div>
+            <div class="w-full lg:w-1/2">
+                <h2 class="text-5xl font-black mb-10 italic">הסיפור מאחורי הסמל</h2>
+                <div class="space-y-10">
+                    <div class="flex gap-8 items-start group">
+                        <div class="w-14 h-14 bg-idf-yellow/10 border border-idf-yellow/30 rounded-2xl flex items-center justify-center text-idf-yellow shrink-0 group-hover:bg-idf-yellow group-hover:text-idf-dark transition duration-300">
+                            <i class="fa-solid fa-shield-halved text-2xl"></i>
                         </div>
-                        <div class="flex justify-between items-center p-6 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition text-right">
-                            <span class="font-bold text-xl leading-tight">מנהל/ת פיתוח משאבים</span>
-                            <span class="text-idf-gold font-bold italic">[פנוי]</span>
-                        </div>
-                        <div class="flex justify-between items-center p-6 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition">
-                            <span class="font-bold text-xl">מנהל/ת רווחה</span>
-                            <span class="text-idf-gold font-bold italic">[פנוי]</span>
+                        <div>
+                            <h4 class="text-2xl font-black text-idf-yellow mb-2">מגן האדמה והחול</h4>
+                            <p class="text-gray-400 text-xl leading-relaxed font-light">המגן חצוי לחום בהיר (חולות המדבר) וחום כהה (אדמת הנגב היציבה), המייצג את המורשת המבצעית של החטיבה.</p>
                         </div>
                     </div>
-                </div>
-
-                <!-- נציגי גדודים -->
-                <div>
-                    <h2 class="text-4xl font-black mb-12 text-idf-yellow italic tracking-tighter">נציגי גדודים</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
-                        <div class="p-5 bg-white/5 rounded-2xl border border-white/10">
-                            <span class="block font-black text-lg">נציג גדוד 1891</span>
-                            <span class="text-sm text-gray-500 mt-2 block italic">[למילוי]</span>
+                    <div class="flex gap-8 items-start group">
+                        <div class="w-14 h-14 bg-idf-yellow/10 border border-idf-yellow/30 rounded-2xl flex items-center justify-center text-idf-yellow shrink-0 group-hover:bg-idf-yellow group-hover:text-idf-dark transition duration-300">
+                            <i class="fa-solid fa-handshake text-2xl"></i>
                         </div>
-                        <div class="p-5 bg-white/5 rounded-2xl border border-white/10">
-                            <span class="block font-black text-lg">נציג גדוד 1892</span>
-                            <span class="text-sm text-gray-500 mt-2 block italic">[למילוי]</span>
-                        </div>
-                        <div class="p-5 bg-white/5 rounded-2xl border border-white/10">
-                            <span class="block font-black text-lg">נציג גדוד 1893</span>
-                            <span class="text-sm text-gray-500 mt-2 block italic">[למילוי]</span>
-                        </div>
-                        <div class="p-5 bg-white/5 rounded-2xl border border-white/10">
-                            <span class="block font-black text-lg">נציג גדוד 1894</span>
-                            <span class="text-sm text-gray-500 mt-2 block italic">[למילוי]</span>
-                        </div>
-                        <div class="p-5 bg-white/5 rounded-2xl border border-white/10 md:col-span-2">
-                            <span class="block font-black text-lg">נציג גדוד 1895</span>
-                            <span class="text-sm text-gray-500 mt-2 block italic">[למילוי]</span>
+                        <div>
+                            <h4 class="text-2xl font-black text-idf-yellow mb-2">לחיצת היד המשלבת</h4>
+                            <p class="text-gray-400 text-xl leading-relaxed font-light">בלב המגן, לחיצת יד המאחדת את הצבעים. היא מסמלת את הסולידריות והקהילה האזרחית התומכת של העמותה.</p>
                         </div>
                     </div>
                 </div>
@@ -207,95 +196,234 @@
         </div>
     </section>
 
-    <!-- הגדודים - מראה מודרני ואחיד -->
-    <section id="battalions" class="py-32 bg-slate-50">
+    <!-- Management / Infantry Ground Maneuver Background -->
+    <section id="management" class="bg-maneuver py-32">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-5xl font-black text-center text-idf-dark mb-24 tracking-tighter italic">השדרה המרכזית</h2>
+            <div class="text-center mb-24">
+                <h2 class="text-6xl font-black italic mb-6">הוועד המנהל</h2>
+                <p class="text-2xl text-gray-400 font-light italic">הנהגת העמותה המובילה את החזון והעשייה בשקיפות מלאה</p>
+                <div class="h-2 w-32 bg-idf-yellow mx-auto mt-8"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Chairman (Empty) -->
+                <div class="glass-dark p-10 rounded-[2.5rem] border-2 border-dashed border-white/20 text-center flex flex-col items-center justify-center min-h-[320px]">
+                    <div class="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center text-white/20 text-4xl mb-4"><i class="fa-solid fa-crown"></i></div>
+                    <h3 class="text-2xl font-black text-white/30 italic">יו"ר העמותה</h3>
+                    <p class="text-xs font-bold text-idf-yellow/40 mt-4 tracking-widest uppercase">בתהליך מינוי</p>
+                </div>
+
+                <!-- Yoav -->
+                <div class="glass-dark p-10 rounded-[2.5rem] text-center border-b-8 border-idf-yellow/50">
+                    <div class="w-20 h-20 bg-idf-yellow/10 text-idf-yellow rounded-3xl flex items-center justify-center text-3xl mb-8 mx-auto shadow-inner"><i class="fa-solid fa-user-ninja"></i></div>
+                    <h3 class="text-2xl font-black mb-2">יואב הנר</h3>
+                    <p class="text-idf-yellow font-bold mb-6 italic">חבר ועד</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">מוביל תהליכי ארגון ובניית קהילה בשגרה ובמצבי חירום.</p>
+                </div>
+
+                <div class="glass-dark p-10 rounded-[2.5rem] text-center border-b-8 border-idf-yellow/50 text-right">
+                    <div class="w-20 h-20 bg-idf-yellow/10 text-idf-yellow rounded-3xl flex items-center justify-center text-3xl mb-8 mx-auto shadow-inner"><i class="fa-solid fa-user-ninja"></i></div>
+                    <h3 class="text-2xl font-black mb-2 text-center">יהונתן פרידמן</h3>
+                    <p class="text-idf-yellow font-bold mb-6 italic text-center">חבר ועד</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">אמון על פיתוח קשרי החוץ והתרחבות העמותה למחוזות חדשים.</p>
+                </div>
+
+                <div class="glass-dark p-10 rounded-[2.5rem] text-center border-b-8 border-idf-yellow/50">
+                    <div class="w-20 h-20 bg-idf-yellow/10 text-idf-yellow rounded-3xl flex items-center justify-center text-3xl mb-8 mx-auto shadow-inner"><i class="fa-solid fa-user-ninja"></i></div>
+                    <h3 class="text-2xl font-black mb-2">דני בלובשטיין</h3>
+                    <p class="text-idf-yellow font-bold mb-6 italic">חבר ועד</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">מרכז את תחום הלוגיסטיקה והפריסה המבצעית של העמותה.</p>
+                </div>
+
+                <div class="glass-dark p-10 rounded-[2.5rem] text-center border-b-8 border-idf-yellow/50">
+                    <div class="w-20 h-20 bg-idf-yellow/10 text-idf-yellow rounded-3xl flex items-center justify-center text-3xl mb-8 mx-auto shadow-inner"><i class="fa-solid fa-user-ninja"></i></div>
+                    <h3 class="text-2xl font-black mb-2">בר נוימן</h3>
+                    <p class="text-idf-yellow font-bold mb-6 italic">חבר ועד</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">אחראי על תחום הרווחה והקשר הישיר עם משפחות החטיבה.</p>
+                </div>
+
+                <!-- Auditor -->
+                <div class="glass-dark p-10 rounded-[2.5rem] text-center border-b-8 border-idf-yellow/50 bg-gradient-to-t from-idf-gold/10 to-transparent">
+                    <div class="w-20 h-20 bg-idf-gold text-white rounded-3xl flex items-center justify-center text-3xl mb-8 mx-auto shadow-lg"><i class="fa-solid fa-user-shield"></i></div>
+                    <h3 class="text-2xl font-black mb-2 leading-none">רו"ח גל אדווה</h3>
+                    <p class="text-idf-yellow font-bold mb-6 italic uppercase tracking-tighter">מבקרת העמותה</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">אחראית על התקינות הכספית, השקיפות והתנהלותה התקנית של העמותה.</p>
+                </div>
+
+                <!-- Empty Seats -->
+                <div class="glass-dark p-10 rounded-[2.5rem] border-2 border-dashed border-white/10 text-center flex flex-col items-center justify-center text-white/10">
+                    <h3 class="text-xl font-bold italic">חבר ועד</h3>
+                    <p class="text-xs font-bold uppercase tracking-widest mt-2">[פנוי]</p>
+                </div>
+                <div class="glass-dark p-10 rounded-[2.5rem] border-2 border-dashed border-white/10 text-center flex flex-col items-center justify-center text-white/10">
+                    <h3 class="text-xl font-bold italic">חבר ועד</h3>
+                    <p class="text-xs font-bold uppercase tracking-widest mt-2">[פנוי]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Operational Team Section -->
+    <section class="py-24 bg-idf-dark border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-24">
+            <div>
+                <h2 class="text-4xl font-black mb-12 text-idf-yellow italic italic underline decoration-white/10 underline-offset-8 leading-tight">צוות ביצועי ואנשי קשר</h2>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center p-6 glass rounded-2xl">
+                        <span class="font-black text-xl">מנכ"ל העמותה</span>
+                        <span class="text-idf-gold font-bold italic bg-white/5 px-4 py-1 rounded-full text-sm">טרם מונה</span>
+                    </div>
+                    <div class="flex justify-between items-center p-6 glass rounded-2xl">
+                        <span class="font-black text-xl text-right leading-tight">מנהל/ת פיתוח משאבים</span>
+                        <span class="text-idf-gold font-bold italic bg-white/5 px-4 py-1 rounded-full text-sm">טרם מונה</span>
+                    </div>
+                    <div class="flex justify-between items-center p-6 glass rounded-2xl">
+                        <span class="font-black text-xl">מנהל/ת רווחה</span>
+                        <span class="text-idf-gold font-bold italic bg-white/5 px-4 py-1 rounded-full text-sm">טרם מונה</span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="text-4xl font-black mb-12 text-idf-yellow italic italic underline decoration-white/10 underline-offset-8 leading-tight">נציגי גדודים</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-6 glass rounded-2xl text-center">
+                        <span class="block font-black text-2xl mb-1 italic">1891</span>
+                        <span class="text-xs text-idf-gold font-bold uppercase tracking-widest">[למילוי]</span>
+                    </div>
+                    <div class="p-6 glass rounded-2xl text-center">
+                        <span class="block font-black text-2xl mb-1 italic">1892</span>
+                        <span class="text-xs text-idf-gold font-bold uppercase tracking-widest">[למילוי]</span>
+                    </div>
+                    <div class="p-6 glass rounded-2xl text-center">
+                        <span class="block font-black text-2xl mb-1 italic">1893</span>
+                        <span class="text-xs text-idf-gold font-bold uppercase tracking-widest">[למילוי]</span>
+                    </div>
+                    <div class="p-6 glass rounded-2xl text-center">
+                        <span class="block font-black text-2xl mb-1 italic">1894</span>
+                        <span class="text-xs text-idf-gold font-bold uppercase tracking-widest">[למילוי]</span>
+                    </div>
+                    <div class="p-6 glass rounded-2xl text-center md:col-span-2">
+                        <span class="block font-black text-2xl mb-1 italic">1895</span>
+                        <span class="text-xs text-idf-gold font-bold uppercase tracking-widest">[למילוי]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Battalions / Territorial Section -->
+    <section id="battalions" class="bg-infantry py-32">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-24">
+                <h2 class="text-6xl font-black italic tracking-tighter">השדרה המבצעית</h2>
+                <p class="text-2xl text-gray-400 mt-4 font-light">פריסה גיאוגרפית וכוח לחימה</p>
+                <div class="h-2 w-32 bg-white/20 mx-auto mt-8 rounded-full"></div>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Battalion Card -->
+                <div class="glass p-10 rounded-[3rem] border-b-8 border-idf-yellow shadow-2xl flex flex-col card-modern">
+                    <div class="mb-10 text-center">
+                        <h3 class="text-4xl font-black italic">1891</h3>
+                        <p class="text-idf-yellow font-black text-xl tracking-[0.3em] mt-2 uppercase">"מגני יואב"</p>
+                    </div>
+                    <p class="text-xl text-gray-300 leading-relaxed font-light mb-10 text-right"><strong>גזרה:</strong> מרחב לכיש, קריית גת ומועצה אזורית יואב. גדוד חי"ר המגן על השער הצפוני של הנגב.</p>
+                    <div class="mt-auto bg-white/5 p-6 rounded-2xl text-center text-idf-gold font-black italic border border-white/5">נציג עמותה: טרם מונה</div>
+                </div>
+
+                <div class="glass p-10 rounded-[3rem] border-b-8 border-idf-yellow shadow-2xl flex flex-col card-modern">
+                    <div class="mb-10 text-center">
+                        <h3 class="text-4xl font-black italic">1892</h3>
+                        <p class="text-idf-yellow font-black text-xl tracking-[0.3em] mt-2 uppercase">"חורב"</p>
+                    </div>
+                    <p class="text-xl text-gray-300 leading-relaxed font-light mb-10 text-right"><strong>גזרה:</strong> יישובי עוטף עזה. גדוד המורכב מלוחמים בני העוטף, המגן פיזית על הבית והקהילה.</p>
+                    <div class="mt-auto bg-white/5 p-6 rounded-2xl text-center text-idf-gold font-black italic border border-white/5">נציג עמותה: טרם מונה</div>
+                </div>
+
+                <div class="glass p-10 rounded-[3rem] border-b-8 border-idf-yellow shadow-2xl flex flex-col card-modern">
+                    <div class="mb-10 text-center">
+                        <h3 class="text-4xl font-black italic">1893</h3>
+                        <p class="text-idf-yellow font-black text-xl tracking-[0.3em] mt-2 uppercase">"הר הנגב"</p>
+                    </div>
+                    <p class="text-xl text-gray-300 leading-relaxed font-light mb-10 text-right"><strong>גזרה:</strong> דימונה, ערד, ירוחם ומצפה רמון. מודל "בני מקום" לשמירה על מרחב הנגב המרכזי והערבה.</p>
+                    <div class="mt-auto bg-white/5 p-6 rounded-2xl text-center text-idf-gold font-black italic border border-white/5">נציג עמותה: טרם מונה</div>
+                </div>
+
+                <div class="glass p-10 rounded-[3rem] border-b-8 border-idf-yellow shadow-2xl flex flex-col card-modern">
+                    <div class="mb-10 text-center">
+                        <h3 class="text-4xl font-black italic">1894</h3>
+                        <p class="text-idf-yellow font-black text-xl tracking-[0.3em] mt-2 uppercase">"הלל"</p>
+                    </div>
+                    <p class="text-xl text-gray-300 leading-relaxed font-light mb-10 text-right"><strong>אופי:</strong> מורכב מיוצאי חיל הים. גדוד המשלב מיומנויות לחימה ייחודיות וניסיון מבצעי רב שנים.</p>
+                    <div class="mt-auto bg-white/5 p-6 rounded-2xl text-center text-idf-gold font-black italic border border-white/5">נציג עמותה: טרם מונה</div>
+                </div>
+
+                <div class="glass p-10 rounded-[3rem] border-b-8 border-idf-yellow shadow-2xl flex flex-col card-modern md:col-span-2 lg:col-span-1">
+                    <div class="mb-10 text-center">
+                        <h3 class="text-4xl font-black italic">1895</h3>
+                        <p class="text-idf-yellow font-black text-xl tracking-[0.3em] mt-2 uppercase">"יעלה"</p>
+                    </div>
+                    <p class="text-xl text-gray-300 leading-relaxed font-light mb-10 text-right"><strong>גזרה:</strong> העיר אילת ויישובי חבל אילות. הגנה על הגבול הדרומי ביותר של מדינת ישראל.</p>
+                    <div class="mt-auto bg-white/5 p-6 rounded-2xl text-center text-idf-gold font-black italic border border-white/5">נציג עמותה: טרם מונה</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CQB / Recruit Section -->
+    <section id="recruit" class="bg-cqb py-32 text-right">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="glass-dark rounded-[4rem] p-12 md:p-20 shadow-2xl border-t border-idf-yellow/20">
+                <h2 class="text-5xl font-black text-white mb-6 italic tracking-tighter leading-tight">גיוס לחטיבה</h2>
+                <p class="text-2xl text-gray-400 mb-12 font-light">אנחנו תמיד מחפשים לוחמים ומפקדים טובים שיצטרפו לשורותינו.</p>
                 
-                <!-- 1891 -->
-                <div class="card-modern bg-white rounded-[3rem] overflow-hidden shadow-sm border border-slate-100 flex flex-col">
-                    <div class="bg-idf-green p-10 text-center text-white">
-                        <h3 class="text-3xl font-black">גדוד 1891</h3>
-                        <p class="text-idf-yellow font-bold mt-2 text-xl tracking-widest uppercase italic">"מגני יואב"</p>
+                <form class="space-y-8" onsubmit="event.preventDefault();">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="space-y-2">
+                            <label class="text-xs font-black text-idf-yellow uppercase tracking-widest mr-4">שם מלא</label>
+                            <input type="text" required class="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-white focus:border-idf-yellow outline-none transition text-xl font-bold">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-black text-idf-yellow uppercase tracking-widest mr-4">טלפון ליצירת קשר</label>
+                            <input type="tel" required class="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-white focus:border-idf-yellow outline-none transition text-xl font-bold">
+                        </div>
                     </div>
-                    <div class="p-10 flex-grow text-right">
-                        <p class="text-lg text-slate-600 mb-8 leading-relaxed font-light italic">גזרה: מרחב לכיש, קריית גת ומועצה אזורית יואב. גדוד חי"ר המבוסס על "בני המקום" המגן על הגזרה הצפונית.</p>
-                        <div class="mt-auto bg-slate-50 p-6 rounded-2xl border-2 border-dashed border-slate-200 text-center font-bold text-slate-400 italic text-sm">איש קשר בעמותה: [למילוי]</div>
+                    <div class="space-y-2">
+                        <label class="text-xs font-black text-idf-yellow uppercase tracking-widest mr-4">תפקיד צבאי</label>
+                        <select class="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-white focus:border-idf-yellow outline-none transition text-xl font-bold appearance-none cursor-pointer">
+                            <option class="text-slate-900">לוחם / מפקד (רובאי 05+)</option>
+                            <option class="text-slate-900">נהג משא כבד / מבצעי</option>
+                            <option class="text-slate-900">חובש / רפואה</option>
+                            <option class="text-slate-900">לוגיסטיקה וחימוש</option>
+                        </select>
                     </div>
-                </div>
-
-                <!-- 1892 -->
-                <div class="card-modern bg-white rounded-[3rem] shadow-sm border border-slate-100 overflow-hidden flex flex-col">
-                    <div class="bg-idf-green p-10 text-center text-white">
-                        <h3 class="text-3xl font-black">גדוד 1892</h3>
-                        <p class="text-idf-yellow font-bold mt-2 text-xl tracking-widest uppercase italic">"חורב"</p>
-                    </div>
-                    <div class="p-10 flex-grow text-right">
-                        <p class="text-lg text-slate-600 mb-8 leading-relaxed font-light italic">גזרה: יישובי עוטף עזה. גדוד המורכב מלוחמים בני העוטף, המהווה מכפיל כוח בהגנה על הבית.</p>
-                        <div class="mt-auto bg-slate-50 p-6 rounded-2xl border-2 border-dashed border-slate-200 text-center font-bold text-slate-400 italic text-sm">איש קשר בעמותה: [למילוי]</div>
-                    </div>
-                </div>
-
-                <!-- 1893 -->
-                <div class="card-modern bg-white rounded-[3rem] shadow-sm border border-slate-100 overflow-hidden flex flex-col">
-                    <div class="bg-idf-green p-10 text-center text-white">
-                        <h3 class="text-3xl font-black">גדוד 1893</h3>
-                        <p class="text-idf-yellow font-bold mt-2 text-xl tracking-widest uppercase italic">"הר הנגב"</p>
-                    </div>
-                    <div class="p-10 flex-grow text-right">
-                        <p class="text-lg text-slate-600 mb-8 leading-relaxed font-light italic">גזרה: דימונה, ערד, ירוחם ומצפה רמון. מבוסס על מודל "בני מקום" לשמירה על הנגב המרכזי.</p>
-                        <div class="mt-auto bg-slate-50 p-6 rounded-2xl border-2 border-dashed border-slate-200 text-center font-bold text-slate-400 italic text-sm">איש קשר בעמותה: [למילוי]</div>
-                    </div>
-                </div>
-
-                <!-- 1894 -->
-                <div class="card-modern bg-white rounded-[3rem] shadow-sm border border-slate-100 overflow-hidden flex flex-col">
-                    <div class="bg-idf-green p-10 text-center text-white">
-                        <h3 class="text-3xl font-black">גדוד 1894</h3>
-                        <p class="text-idf-yellow font-bold mt-2 text-xl tracking-widest uppercase italic">"הלל"</p>
-                    </div>
-                    <div class="p-10 flex-grow text-right">
-                        <p class="text-lg text-slate-600 mb-8 leading-relaxed font-light italic">אופי: מורכב בין היתר מיוצאי חיל הים. גדוד חי"ר המשלב ניסיון מבצעי עשיר מעולם הים והיבשה.</p>
-                        <div class="mt-auto bg-slate-50 p-6 rounded-2xl border-2 border-dashed border-slate-200 text-center font-bold text-slate-400 italic text-sm">איש קשר בעמותה: [למילוי]</div>
-                    </div>
-                </div>
-
-                <!-- 1895 -->
-                <div class="card-modern bg-white rounded-[3rem] shadow-sm border border-slate-100 overflow-hidden flex flex-col md:col-span-2 lg:col-span-1">
-                    <div class="bg-idf-green p-10 text-center text-white">
-                        <h3 class="text-3xl font-black">גדוד 1895</h3>
-                        <p class="text-idf-yellow font-bold mt-2 text-xl tracking-widest uppercase italic">"יעלה"</p>
-                    </div>
-                    <div class="p-10 flex-grow text-right">
-                        <p class="text-lg text-slate-600 mb-8 leading-relaxed font-light italic">גזרה: העיר אילת ויישובי חבל אילות. גדוד מילואים להגנה מרחבית המבוסס על תושבי האזור.</p>
-                        <div class="mt-auto bg-slate-50 p-6 rounded-2xl border-2 border-dashed border-slate-200 text-center font-bold text-slate-400 italic text-sm">איש קשר בעמותה: [למילוי]</div>
-                    </div>
-                </div>
-
+                    <button type="submit" class="w-full bg-idf-yellow text-idf-dark font-black text-2xl py-6 rounded-2xl hover:scale-[1.02] transition shadow-[0_20px_50px_rgba(250,204,21,0.3)] mt-6 uppercase italic">שליחת פרטים</button>
+                </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-idf-dark text-white py-24 border-t-8 border-idf-green">
+    <footer class="bg-idf-dark text-white py-24 border-t-8 border-idf-yellow">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-12 text-center md:text-right">
-                <div class="flex items-center gap-6">
-                    <div class="bg-white p-3 rounded-2xl h-24 w-24 flex items-center justify-center shadow-lg">
-                        <img src="logo.png" alt="לוגו" class="max-h-full max-w-full object-contain" onerror="this.parentElement.style.display='none'">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-16 text-center md:text-right">
+                <div class="flex items-center gap-8">
+                    <div class="bg-white p-3 rounded-2xl h-28 w-28 flex items-center justify-center shadow-2xl">
+                        <img src="logo.png" alt="לוגו פוטר" class="max-h-full max-w-full object-contain" onerror="this.parentElement.style.display='none'">
                     </div>
-                    <div class="border-r border-white/10 pr-6">
+                    <div class="border-r border-white/10 pr-8">
                         <span class="font-black text-4xl block tracking-tighter italic">חטיבת נגבה 189</span>
-                        <p class="text-slate-500 font-bold mt-1 text-sm tracking-widest uppercase">העמותה הרשמית למשרתים ומשפחותיהם</p>
+                        <p class="text-slate-500 font-bold mt-2 text-base tracking-[0.2em] uppercase">העמותה הרשמית למשרתים ומשפחותיהם</p>
                     </div>
                 </div>
-                <div class="flex gap-10 text-5xl">
-                    <a href="#" class="text-slate-600 hover:text-idf-yellow transition"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#" class="text-slate-600 hover:text-idf-yellow transition"><i class="fa-brands fa-whatsapp"></i></a>
+                <div class="flex gap-12 text-5xl">
+                    <a href="#" class="text-white/20 hover:text-idf-yellow transition"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="text-white/20 hover:text-idf-yellow transition"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="mailto:info@189ngo.org.il" class="text-white/20 hover:text-idf-yellow transition"><i class="fa-solid fa-envelope"></i></a>
                 </div>
             </div>
-            <div class="border-t border-white/5 mt-16 pt-8 text-center text-slate-600 font-bold text-xs tracking-widest uppercase italic">
+            <div class="border-t border-white/5 mt-20 pt-10 text-center text-slate-600 font-bold text-sm tracking-widest uppercase italic">
                 &copy; 2024 עמותת חטיבה 189. כל הזכויות שמורות למשרתי החטיבה.
             </div>
         </div>
