@@ -354,10 +354,6 @@
                 <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200">
                     <h3 class="text-2xl font-black text-idf-dark mb-6 border-b pb-4"><i class="fa-solid fa-briefcase ml-2 text-idf-green"></i>הנהלה ביצועית</h3>
                     <ul class="space-y-3">
-                        <li class="flex justify-between items-center bg-white p-3 rounded-lg shadow-sm border-r-4 border-idf-green">
-                            <span class="font-bold">ג'ייסון</span>
-                            <span class="text-xs bg-idf-green/10 text-idf-green px-2 py-1 rounded font-bold">מנהל קשרי חו"ל</span>
-                        </li>
                         <li class="flex justify-between items-center bg-white p-3 rounded-lg shadow-sm opacity-60">
                             <span class="font-bold">מנכ"ל/ית העמותה</span>
                             <span class="text-xs bg-gray-200 px-2 py-1 rounded text-gray-700">ללא אדם מוגדר</span>
