@@ -70,6 +70,16 @@
             transform: translateY(-4px);
             border-color: #e2e8f0;
         }
+        
+        /* אפקט הבהוב לכפתור ווטסאפ פעם בכמה שניות למשיכת תשומת לב */
+        @keyframes pulse-whatsapp {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-float {
+            animation: pulse-whatsapp 2.5s infinite;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -110,10 +120,10 @@
 
     <!-- אזור פתיחה (Hero) -->
     <section class="pt-32 pb-20 lg:pt-48 lg:pb-32 bg-brand-dark text-white relative overflow-hidden">
-        <!-- מקום לתמונת רקע של לוחמים בגיטהאב -->
+        <!-- תמונת רקע של לוחמים בגיטהאב (hero-bg.jpg) -->
         <div class="absolute inset-0 z-0">
-            <!-- כדי להשתמש בתמונה שלך, שנה את ה-src כאן: -->
-            <img src="https://images.unsplash.com/photo-1595350550478-f71f6d3a9544?auto=format&fit=crop&q=80&w=2000" alt="לוחמי חטיבת נגבה" class="w-full h-full object-cover opacity-30">
+            <!-- כדי להשתמש בתמונה שלך תעלה את 'hero-bg.jpg'. עד אז תוצג ההדמיה -->
+            <img src="hero-bg.jpg" onerror="this.src='https://images.unsplash.com/photo-1595350550478-f71f6d3a9544?auto=format&fit=crop&q=80&w=2000'" alt="לוחמי חטיבת נגבה" class="w-full h-full object-cover opacity-30">
             <div class="absolute inset-0 bg-gradient-to-t from-brand-dark to-transparent"></div>
         </div>
         
@@ -149,9 +159,9 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- מטרה 1 -->
                 <div class="premium-card flex flex-col hover-zoom">
-                    <!-- מקום לתמונה: החלף src -->
+                    <!-- תמונה: families.jpg -->
                     <div class="image-placeholder h-48 w-full">
-                        <img src="https://images.unsplash.com/photo-1609220136736-443140cffec6?auto=format&fit=crop&q=80&w=800" alt="משפחה">
+                        <img src="families.jpg" onerror="this.src='https://images.unsplash.com/photo-1609220136736-443140cffec6?auto=format&fit=crop&q=80&w=800'" alt="משפחה">
                     </div>
                     <div class="p-8 flex-grow">
                         <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-lg flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-house-chimney-heart"></i></div>
@@ -162,9 +172,9 @@
 
                 <!-- מטרה 2 -->
                 <div class="premium-card flex flex-col hover-zoom">
-                    <!-- מקום לתמונה: החלף src -->
+                    <!-- תמונה: networking.jpg -->
                     <div class="image-placeholder h-48 w-full">
-                        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=800" alt="עסקים ונטוורקינג">
+                        <img src="networking.jpg" onerror="this.src='https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=800'" alt="עסקים ונטוורקינג">
                     </div>
                     <div class="p-8 flex-grow">
                         <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-handshake"></i></div>
@@ -175,9 +185,9 @@
 
                 <!-- מטרה 3 -->
                 <div class="premium-card flex flex-col hover-zoom">
-                    <!-- מקום לתמונה: החלף src -->
+                    <!-- תמונה: benefits.jpg -->
                     <div class="image-placeholder h-48 w-full">
-                        <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=800" alt="צרכנות">
+                        <img src="benefits.jpg" onerror="this.src='https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=800'" alt="צרכנות">
                     </div>
                     <div class="p-8 flex-grow">
                         <div class="w-12 h-12 bg-amber-100 text-brand-accent rounded-lg flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-tags"></i></div>
@@ -216,19 +226,12 @@
                 </div>
                 
                 <div class="lg:w-1/2 w-full">
-                    <!-- מקום ייעודי לתמונת הסוואנה הממותגת -->
+                    <!-- תמונת הניידת: van-189.jpg -->
                     <div class="image-placeholder aspect-video rounded-2xl shadow-2xl relative">
-                        <!-- הערה: כאן תכניס את התמונה של הסוואנה דרך גיטהאב. עד אז יש תמונה זמנית. -->
-                        <img src="https://images.unsplash.com/photo-1549317336-206569e8475c?auto=format&fit=crop&q=80&w=1000" alt="ניידת ת"ש - הדמיה" class="w-full h-full object-cover rounded-2xl">
-                        
-                        <!-- מדבקה וירטואלית להדמיה (אפשר להסיר כשתשים תמונה אמיתית) -->
-                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                            <div class="bg-white/90 backdrop-blur px-6 py-3 rounded-lg shadow-xl border-2 border-brand-accent transform -rotate-6">
-                                <h3 class="font-black text-2xl text-brand-dark">ניידת עמותת חטיבה 189</h3>
-                            </div>
-                        </div>
+                        <!-- כאן תטען אוטומטית תמונת הסוואנה הממותגת ברגע שתעלה אותה לגיטהאב -->
+                        <img src="van-189.jpg" onerror="this.src='https://images.unsplash.com/photo-1549317336-206569e8475c?auto=format&fit=crop&q=80&w=1000'" alt="ניידת ת"ש - הדמיה" class="w-full h-full object-cover rounded-2xl">
                     </div>
-                    <p class="text-center text-sm text-gray-400 mt-4">הדמיית הניידת המבצעית של העמותה</p>
+                    <p class="text-center text-sm text-gray-400 mt-4">הניידת המבצעית של העמותה</p>
                 </div>
             </div>
         </div>
@@ -325,7 +328,7 @@
         </div>
     </section>
 
-    <!-- הנהלה וצוות - תצוגה נקייה -->
+    <!-- הנהלה וצוות -->
     <section id="leadership" class="py-24 bg-white border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
@@ -409,7 +412,7 @@
         </div>
     </section>
 
-    <!-- נטוורקינג (עיצוב חדש של קריאה לפעולה) -->
+    <!-- נטוורקינג (בקרוב) -->
     <section id="networking" class="py-20 bg-brand-dark text-white relative overflow-hidden">
         <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
         <div class="max-w-5xl mx-auto px-6 relative z-10 text-center">
@@ -429,7 +432,7 @@
     </section>
 
     <!-- פוטר -->
-    <footer class="bg-white py-12 border-t border-gray-200">
+    <footer class="bg-white py-12 border-t border-gray-200 pb-24"> <!-- pb-24 כדי לתת מקום לכפתור הצף -->
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-right">
             
             <div class="flex items-center gap-4">
@@ -450,6 +453,11 @@
 
         </div>
     </footer>
+
+    <!-- כפתור ווטסאפ צף (חדש) -->
+    <a href="https://wa.me/972542456102" target="_blank" aria-label="שלח הודעה בווטסאפ" class="whatsapp-float fixed bottom-6 left-6 z-[100] bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 hover:bg-[#20ba59] transition-all duration-300">
+        <i class="fa-brands fa-whatsapp text-4xl"></i>
+    </a>
 
 </body>
 </html>
