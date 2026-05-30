@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -70,7 +71,7 @@
             border-color: #e2e8f0;
         }
         
-        /* אפקט הבהוב לכפתור ווטסאפ פעם בכמה שניות למשיכת תשומת לב */
+        /* כפתור ווטסאפ צף מונפש */
         @keyframes pulse-whatsapp {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
             70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
@@ -83,14 +84,13 @@
 </head>
 <body class="antialiased">
 
-    <!-- ניווט עליון - נקי, לבן, יוקרתי -->
+    <!-- ניווט עליון -->
     <nav class="bg-white/95 backdrop-blur-md shadow-sm fixed w-full z-50 top-0 transition-all border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-24">
                 
-                <!-- אזור לוגו -->
+                <!-- לוגו (logo.png) -->
                 <div class="flex items-center gap-4">
-                    <!-- החלף את logo.png בקובץ שלך בגיטהאב -->
                     <img src="logo.png" alt="לוגו עמותת נגבה" class="h-16 w-auto" onerror="this.src='https://placehold.co/100/4b5320/ffffff?text=189'">
                     <div class="hidden sm:block border-r-2 border-gray-200 pr-4">
                         <span class="font-extrabold text-2xl text-brand-dark block leading-none">עמותת נגבה 189</span>
@@ -107,7 +107,7 @@
                     <a href="#networking" class="hover:text-brand-accent transition">נטוורקינג</a>
                 </div>
 
-                <!-- כפתור הנעה לפעולה -->
+                <!-- כפתור תרומה לווטסאפ -->
                 <div class="flex items-center gap-4">
                     <a href="https://wa.me/972542456102" target="_blank" class="bg-brand-accent text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-amber-700 transition shadow-md flex items-center gap-2">
                         <i class="fa-brands fa-whatsapp text-lg"></i> תרומה לעמותה
@@ -117,12 +117,10 @@
         </div>
     </nav>
 
-    <!-- אזור פתיחה (Hero) -->
+    <!-- אזור פתיחה (Hero) עם רקע תמונה (hero-bg.jpg) -->
     <section class="pt-32 pb-20 lg:pt-48 lg:pb-32 bg-brand-dark text-white relative overflow-hidden">
-        <!-- תמונת רקע של לוחמים בגיטהאב (hero-bg.jpg) -->
         <div class="absolute inset-0 z-0">
-            <!-- כדי להשתמש בתמונה שלך תעלה את 'hero-bg.jpg'. עד אז תוצג ההדמיה -->
-            <img src="hero-bg.jpg" onerror="this.src='https://images.unsplash.com/photo-1595350550478-f71f6d3a9544?auto=format&fit=crop&q=80&w=2000'" alt="לוחמי חטיבת נגבה" class="w-full h-full object-cover opacity-30">
+            <img src="hero-bg.jpg" onerror="this.src='https://images.unsplash.com/photo-1595350550478-f71f6d3a9544?auto=format&fit=crop&q=80&w=2000'" alt="" class="w-full h-full object-cover opacity-30">
             <div class="absolute inset-0 bg-gradient-to-t from-brand-dark to-transparent"></div>
         </div>
         
@@ -156,49 +154,46 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- מטרה 1 -->
+                <!-- מטרה 1: מעטפת משפחות (families.jpg) -->
                 <div class="premium-card flex flex-col hover-zoom">
-                    <!-- תמונה: families.jpg -->
                     <div class="image-placeholder h-48 w-full">
-                        <img src="families.jpg" onerror="this.src='https://images.unsplash.com/photo-1609220136736-443140cffec6?auto=format&fit=crop&q=80&w=800'" alt="משפחה">
+                        <img src="families.jpg" onerror="this.src='https://images.unsplash.com/photo-1609220136736-443140cffec6?auto=format&fit=crop&q=80&w=800'" alt="[Image of משפחה]">
                     </div>
                     <div class="p-8 flex-grow">
                         <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-lg flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-house-chimney-heart"></i></div>
                         <h3 class="text-2xl font-bold text-brand-dark mb-3">מעטפת משפחות</h3>
-                        <p class="text-gray-600 leading-relaxed">אנו תומכים בנשות ואנשי המילואים, מארגנים ימי הפוגה קהילתיים, ומחלקים שי בחגים כדי להבטיח שהעורף יישאר חזק ויציב.</p>
+                        <p class="text-gray-600 leading-relaxed">אנו תומכים בנשות ואנשי המילואים, מארגנים ימי הפוגה, ומחלקים שי בחגים לשמירה על עורף חזק ויציב.</p>
                     </div>
                 </div>
 
-                <!-- מטרה 2 -->
+                <!-- מטרה 2: נטוורקינג (networking.jpg) -->
                 <div class="premium-card flex flex-col hover-zoom">
-                    <!-- תמונה: networking.jpg -->
                     <div class="image-placeholder h-48 w-full">
-                        <img src="networking.jpg" onerror="this.src='https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=800'" alt="עסקים ונטוורקינג">
+                        <img src="networking.jpg" onerror="this.src='https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=800'" alt="">
                     </div>
                     <div class="p-8 flex-grow">
                         <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-handshake"></i></div>
                         <h3 class="text-2xl font-bold text-brand-dark mb-3">נטוורקינג ותעסוקה</h3>
-                        <p class="text-gray-600 leading-relaxed">רשת קשרים של 2,500 משרתים. אנו מסייעים במציאת עבודה, קידום עסקים פנימיים, ויצירת קהילה כלכלית איתנה ותומכת.</p>
+                        <p class="text-gray-600 leading-relaxed">רשת של 2,500 משרתים. סיוע במציאת עבודה, קידום עסקים, ויצירת קהילה כלכלית איתנה ותומכת.</p>
                     </div>
                 </div>
 
-                <!-- מטרה 3 -->
+                <!-- מטרה 3: צרכנות (benefits.jpg) -->
                 <div class="premium-card flex flex-col hover-zoom">
-                    <!-- תמונה: benefits.jpg -->
                     <div class="image-placeholder h-48 w-full">
-                        <img src="benefits.jpg" onerror="this.src='https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=800'" alt="צרכנות">
+                        <img src="benefits.jpg" onerror="this.src='https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=800'" alt="[Image of צרכנות]">
                     </div>
                     <div class="p-8 flex-grow">
                         <div class="w-12 h-12 bg-amber-100 text-brand-accent rounded-lg flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-tags"></i></div>
                         <h3 class="text-2xl font-bold text-brand-dark mb-3">מועדון צרכנות</h3>
-                        <p class="text-gray-600 leading-relaxed">מינוף כוח הקנייה המאוחד של משפחות החטיבה להשגת הנחות והטבות בלעדיות ברשתות שיווק, פנאי ושירותים שונים.</p>
+                        <p class="text-gray-600 leading-relaxed">מינוף כוח הקנייה המאוחד של משפחות החטיבה להשגת הנחות והטבות בלעדיות ברשתות ופנאי.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- סקשן מיוחד: הסוואנה - ניידת העמותה -->
+    <!-- סקשן מיוחד: הסוואנה (van-189.jpg) -->
     <section id="van" class="py-24 bg-white border-y border-gray-200">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col lg:flex-row items-center gap-16">
@@ -206,31 +201,22 @@
                     <span class="bg-brand-military/10 text-brand-military px-4 py-1 rounded-full font-bold text-sm mb-6 inline-block">הפרויקט המרכזי שלנו</span>
                     <h2 class="text-4xl md:text-5xl font-black text-brand-dark mb-6">ניידת הת"ש של חטיבה 189</h2>
                     <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-                        הניידת שלנו היא הלב הפועם של העמותה בשטח. רכב מסחרי (סוואנה) מאובזר במלואו, שמגיע ישירות לשטחי הכינוס, למוצבים ולאזורי הלחימה.
+                        הניידת היא הלב הפועם בשטח. מגיעה ישירות למוצבים ולאזורי הלחימה עם ציוד ופינוקים ללוחמים.
                     </p>
                     <ul class="space-y-4 mb-8">
-                        <li class="flex items-center gap-3 text-gray-700 font-medium">
-                            <i class="fa-solid fa-check-circle text-brand-accent text-xl"></i> ציוד לוגיסטי והיגיינה ללוחמים.
-                        </li>
-                        <li class="flex items-center gap-3 text-gray-700 font-medium">
-                            <i class="fa-solid fa-check-circle text-brand-accent text-xl"></i> עמדות התרעננות, אוכל חם ופינוקים.
-                        </li>
-                        <li class="flex items-center gap-3 text-gray-700 font-medium">
-                            <i class="fa-solid fa-check-circle text-brand-accent text-xl"></i> הרמת המורל וחיבוק חם מהעורף ישירות לחזית.
-                        </li>
+                        <li class="flex items-center gap-3 text-gray-700 font-medium"><i class="fa-solid fa-check-circle text-brand-accent text-xl"></i> ציוד לוגיסטי והיגיינה.</li>
+                        <li class="flex items-center gap-3 text-gray-700 font-medium"><i class="fa-solid fa-check-circle text-brand-accent text-xl"></i> עמדות התרעננות ואוכל חם.</li>
+                        <li class="flex items-center gap-3 text-gray-700 font-medium"><i class="fa-solid fa-check-circle text-brand-accent text-xl"></i> הרמת המורל וחיבוק מהעורף.</li>
                     </ul>
                     <a href="https://wa.me/972542456102" target="_blank" class="inline-flex items-center gap-2 text-brand-accent font-bold hover:text-amber-700 transition">
-                        תרמו עכשיו לאחזקת והפעלת הניידת <i class="fa-solid fa-arrow-left"></i>
+                        תרמו עכשיו לאחזקת הניידת <i class="fa-solid fa-arrow-left"></i>
                     </a>
                 </div>
                 
                 <div class="lg:w-1/2 w-full">
-                    <!-- תמונת הניידת: VAN189.png -->
                     <div class="image-placeholder aspect-video rounded-2xl shadow-2xl relative">
-                        <!-- כאן תטען אוטומטית תמונת הסוואנה הממותגת ברגע שתעלה אותה לגיטהאב -->
-                        <img src="van-189.jpg" onerror="this.src='https://images.unsplash.com/photo-1549317336-206569e8475c?auto=format&fit=crop&q=80&w=1000'" alt="ניידת ת"ש - הדמיה" class="w-full h-full object-cover rounded-2xl">
+                        <img src="VAN189.png" onerror="this.src='https://images.unsplash.com/photo-1549317336-206569e8475c?auto=format&fit=crop&q=80&w=1000'" alt="" class="w-full h-full object-cover rounded-2xl">
                     </div>
-                    <p class="text-center text-sm text-gray-400 mt-4">הניידת המבצעית של העמותה</p>
                 </div>
             </div>
         </div>
@@ -245,9 +231,8 @@
                 <div class="h-1.5 w-24 bg-brand-military mx-auto rounded-full mt-6"></div>
             </div>
 
-            <!-- עיצוב גריד חזק ואחיד -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
+                <!-- 1891 -->
                 <div class="premium-card flex flex-col p-6">
                     <div class="flex justify-between items-center mb-4 border-b pb-4">
                         <div>
@@ -263,6 +248,7 @@
                     </div>
                 </div>
 
+                <!-- 1892 -->
                 <div class="premium-card flex flex-col p-6">
                     <div class="flex justify-between items-center mb-4 border-b pb-4">
                         <div>
@@ -278,6 +264,7 @@
                     </div>
                 </div>
 
+                <!-- 1893 -->
                 <div class="premium-card flex flex-col p-6">
                     <div class="flex justify-between items-center mb-4 border-b pb-4">
                         <div>
@@ -293,6 +280,7 @@
                     </div>
                 </div>
 
+                <!-- 1894 -->
                 <div class="premium-card flex flex-col p-6 lg:col-start-1 lg:col-end-2 lg:ml-auto w-full">
                     <div class="flex justify-between items-center mb-4 border-b pb-4">
                         <div>
@@ -308,6 +296,7 @@
                     </div>
                 </div>
 
+                <!-- 1895 -->
                 <div class="premium-card flex flex-col p-6 lg:col-start-2 lg:col-end-3">
                     <div class="flex justify-between items-center mb-4 border-b pb-4">
                         <div>
@@ -322,7 +311,6 @@
                         <span class="font-bold text-brand-dark">חיים קמחי</span>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -336,12 +324,10 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
-                
                 <!-- הוועד המנהל -->
                 <div class="lg:col-span-8">
                     <h3 class="text-2xl font-bold text-brand-dark mb-6 border-b pb-2"><i class="fa-solid fa-users text-gray-400 ml-2"></i> הוועד המנהל</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        
                         <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 flex justify-between items-center sm:col-span-2">
                             <span class="font-bold text-gray-600">יו"ר העמותה</span>
                             <span class="bg-white border border-gray-200 text-gray-500 text-xs px-3 py-1 rounded-full font-bold">טרם מונה</span>
@@ -384,7 +370,6 @@
                             </div>
                             <span class="text-xs bg-white/20 px-3 py-1 rounded-full font-bold">מבקרת העמותה</span>
                         </div>
-
                     </div>
                 </div>
 
@@ -406,7 +391,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -420,10 +404,10 @@
                 אנו מקימים בימים אלו את הפלטפורמה המלאה למציאת עבודה, גיוס עובדים ואינדקס עסקים של משרתי החטיבה. העוצמה שלנו היא ביחד.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-6">
-                <button class="bg-white text-brand-dark px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition shadow-lg opacity-80 cursor-not-allowed">
+                <button class="bg-white text-brand-dark px-8 py-4 rounded-xl font-bold text-lg opacity-80 cursor-not-allowed">
                     <i class="fa-solid fa-briefcase ml-2"></i> לוח משרות (בקרוב)
                 </button>
-                <button class="bg-brand-military text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-opacity-80 transition shadow-lg opacity-80 cursor-not-allowed">
+                <button class="bg-brand-military text-white px-8 py-4 rounded-xl font-bold text-lg opacity-80 cursor-not-allowed">
                     <i class="fa-solid fa-store ml-2"></i> אינדקס עסקים (בקרוב)
                 </button>
             </div>
@@ -431,9 +415,8 @@
     </section>
 
     <!-- פוטר -->
-    <footer class="bg-white py-12 border-t border-gray-200 pb-24"> <!-- pb-24 כדי לתת מקום לכפתור הצף -->
+    <footer class="bg-white py-12 border-t border-gray-200 pb-24">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-right">
-            
             <div class="flex items-center gap-4">
                 <div class="w-12 h-12 bg-gray-50 rounded-lg p-1 border border-gray-200">
                     <img src="logo.png" alt="לוגו" class="w-full h-full object-contain" onerror="this.style.display='none'">
@@ -443,17 +426,15 @@
                     <span class="text-xs text-gray-500">כל הזכויות שמורות &copy; 2024</span>
                 </div>
             </div>
-
             <div class="flex items-center gap-6">
                 <a href="https://wa.me/972542456102" class="text-brand-accent font-bold hover:text-amber-600 transition text-sm flex items-center gap-2 bg-amber-50 px-4 py-2 rounded-full">
                     <i class="fa-brands fa-whatsapp text-lg"></i> לתרומה לעמותה
                 </a>
             </div>
-
         </div>
     </footer>
 
-    <!-- כפתור ווטסאפ צף (חדש) -->
+    <!-- כפתור ווטסאפ צף מונפש -->
     <a href="https://wa.me/972542456102" target="_blank" aria-label="שלח הודעה בווטסאפ" class="whatsapp-float fixed bottom-6 left-6 z-[100] bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 hover:bg-[#20ba59] transition-all duration-300">
         <i class="fa-brands fa-whatsapp text-4xl"></i>
     </a>
