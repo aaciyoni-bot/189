@@ -1,26 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="עמותת חטיבת נגבה 189">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="עמותת חטיבת נגבה 189 — זריחה בנגב">
   <defs>
     <linearGradient id="ring" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#5a6428"/><stop offset="55%" stop-color="#4b5320"/><stop offset="100%" stop-color="#3a4118"/>
     </linearGradient>
-    <radialGradient id="field" cx="50%" cy="42%" r="72%">
-      <stop offset="0%" stop-color="#fbf9f1"/><stop offset="100%" stop-color="#efe9d8"/>
+    <linearGradient id="field" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fdf6e6"/><stop offset="62%" stop-color="#faedcf"/><stop offset="100%" stop-color="#f4dcab"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#fde6bd"/><stop offset="55%" stop-color="#efb24d"/><stop offset="100%" stop-color="#e08a1e"/>
     </radialGradient>
     <filter id="ds" x="-25%" y="-25%" width="150%" height="150%">
       <feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#000" flood-opacity="0.22"/>
     </filter>
+    <clipPath id="field-clip"><circle cx="256" cy="256" r="196"/></clipPath>
   </defs>
 
-  <g filter="url(#ds)">
-    <circle cx="256" cy="256" r="242" fill="url(#ring)"/>
-  </g>
+  <g filter="url(#ds)"><circle cx="256" cy="256" r="242" fill="url(#ring)"/></g>
   <circle cx="256" cy="256" r="242" fill="none" stroke="#e3a53f" stroke-width="3"/>
   <circle cx="256" cy="256" r="230" fill="none" stroke="#e3a53f" stroke-width="1.5" opacity="0.6"/>
   <circle cx="256" cy="256" r="196" fill="url(#field)"/>
-  <circle cx="256" cy="256" r="196" fill="none" stroke="#e3a53f" stroke-width="3"/>
-  <circle cx="256" cy="256" r="186" fill="none" stroke="#4b5320" stroke-width="1.2" opacity="0.35"/>
 
-  <text x="256" y="198" text-anchor="middle" font-family="Heebo,Arial,sans-serif" font-size="40" font-weight="800" fill="#b45309" direction="rtl" letter-spacing="6">נגבה</text>
-  <text x="256" y="302" text-anchor="middle" font-family="Georgia,serif" font-size="122" font-weight="800" fill="#3a4118" letter-spacing="2">189</text>
-  <path d="M256,354 Q241.3,345.5 226.6,337.0" stroke="#3d4419" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M256,354 Q247.0,339.6 238.0,325.2" stroke="#3d4419" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M256,354 Q256.0,337.0 256.0,320.0" stroke="#3d4419" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M256,354 Q265.0,339.6 274.0,325.2" stroke="#3d4419" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M256,354 Q270.7,345.5 285.4,337.0" stroke="#3d4419" stroke-width="2" fill="none" stroke-linecap="round"/><ellipse cx="226.6" cy="337.0" rx="6.5" ry="15" transform="rotate(-60.0 226.6 337.0)" fill="#4b5320"/><path d="M226.6,350.0 L226.6,324.0" stroke="#ffffff33" stroke-width="1" transform="rotate(-60 226.6 337.0)"/><ellipse cx="238.0" cy="325.2" rx="6.5" ry="15" transform="rotate(-32.0 238.0 325.2)" fill="#5a6428"/><path d="M238.0,338.2 L238.0,312.2" stroke="#ffffff33" stroke-width="1" transform="rotate(-32 238.0 325.2)"/><ellipse cx="256.0" cy="320.0" rx="6.5" ry="15" transform="rotate(0.0 256.0 320.0)" fill="#3d4419"/><path d="M256.0,333.0 L256.0,307.0" stroke="#ffffff33" stroke-width="1" transform="rotate(0 256.0 320.0)"/><ellipse cx="274.0" cy="325.2" rx="6.5" ry="15" transform="rotate(32.0 274.0 325.2)" fill="#5a6428"/><path d="M274.0,338.2 L274.0,312.2" stroke="#ffffff33" stroke-width="1" transform="rotate(32 274.0 325.2)"/><ellipse cx="285.4" cy="337.0" rx="6.5" ry="15" transform="rotate(60.0 285.4 337.0)" fill="#4b5320"/><path d="M285.4,350.0 L285.4,324.0" stroke="#ffffff33" stroke-width="1" transform="rotate(60 285.4 337.0)"/><circle cx="248" cy="356" r="5" fill="#d97706"/><circle cx="248" cy="356" r="5" fill="none" stroke="#b45309" stroke-width="1"/><circle cx="263" cy="352" r="5" fill="#e8a63a"/><circle cx="263" cy="352" r="5" fill="none" stroke="#b45309" stroke-width="1"/>
+  <g clip-path="url(#field-clip)"><circle cx="256" cy="300" r="32" fill="url(#sun)"/><path d="M66,320 Q104.0,292.0 142.0,320 Q180.0,289.0 218.0,320 Q256.0,286.0 294.0,320 Q332.0,289.0 370.0,320 Q408.0,292.0 446.0,320 L446,452 L66,452 Z" fill="#e2c179"/><path d="M66,348 C166,328 226,354 286,344 C356,332 396,354 446,344 L446,452 L66,452 Z" fill="#c68a3a"/><path d="M66,376 C186,354 246,392 306,376 C376,358 406,388 446,378 L446,452 L66,452 Z" fill="#9a5f27"/></g>
+
+  <circle cx="256" cy="256" r="196" fill="none" stroke="#e3a53f" stroke-width="3"/>
+  <circle cx="256" cy="256" r="186" fill="none" stroke="#b45309" stroke-width="1.2" opacity="0.3"/>
+
+  <text x="256" y="160" text-anchor="middle" font-family="Heebo,Arial,sans-serif" font-size="35" font-weight="800" fill="#b45309" direction="rtl" letter-spacing="6">נגבה</text>
+  <text x="256" y="262" text-anchor="middle" font-family="Georgia,serif" font-size="116" font-weight="800" fill="#4a3617" letter-spacing="2">189</text>
 </svg>
