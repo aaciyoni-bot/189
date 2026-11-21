@@ -16,13 +16,13 @@ const en = {
  storyText:"The Negba 189 Association aims to purchase 20,000 m² of agricultural land in Israel at an estimated cost of ₪5 million. Funds will help cover the purchase and campaign costs. The balance will support the association’s work with brigade families.",
  use:"The association intends to hold the land in its own name. Future uses and income would serve its charitable purposes, subject to agricultural zoning and the necessary approvals.",
  meaning:"Dedicate a metre to the grandparent who taught you to love this land, to a new baby, or to an entire community.",
- certificate:"Your certificate",certText:"Once payment is confirmed, download a free certificate with your dedication and the metre number recorded in the association’s register.",
+ certificate:"Your certificate",certText:"With digital delivery, we automatically email you a personalised Hebrew and English certificate after your gift is confirmed. You may choose a printed certificate in gift packaging instead.",
  sample:"Sample",certOver:"Negba 189 Association",certTitle:"Certificate of dedication",certLegal:"Symbolic recognition in the association register • No property rights",
  downloadSample:"Download sample certificate",participate:"Take part",giftTitle:"Your dedication",one:"One symbolic square metre",onCert:"Name on the certificate",dedField:"Personal dedication (optional)",
- enhance:"Optional additions",treeText:"Plant a tree",treeSub:"Through the association’s planting programme",paperText:"A printed certificate by post",paperSub:"A digital copy is included with every gift",
+ enhance:"Optional additions",treeText:"Plant a tree",treeSub:"Through the association’s planting programme",paperText:"Printed certificate in a gift package",paperSub:"Mailed to the address you choose, with an optional gift message",
  extra:"Additional gift to the association in USD (optional)",postal:"Full mailing address, including recipient, postal code and country",total:"Total",
  symbolic:"Your metre is a unit of recognition in the association’s register. A gift confers no land title, land registry entry, right of use or share of income.",
- email:"Email address",ambTitle:"Bring your community with you",ambCopy:"Start a page for your family, synagogue or community. Choose a donor goal and share your personal link. Confirmed donations through it count toward both your page and the campaign.",
+ giftNote:"Message for the gift package (optional)",email:"Donor’s email address",ambTitle:"Bring your community with you",ambCopy:"Start a page for your family, synagogue or community. Choose a donor goal and share your personal link. Confirmed donations through it count toward both your page and the campaign.",
  teamLabel:"Public ambassador or community name",privateEmail:"Contact email (private)",goal:"Donor goal",ambConsent:"I agree to display the page name publicly and be contacted by the association about this campaign.",createTeam:"Create ambassador page",
  wa:"Share on WhatsApp",faq:"Before you take part",contact:"Contact the association"
 };
@@ -64,13 +64,15 @@ function certificateData(){
 }
 function preview(){
  const data=certificateData();
- $("download").textContent=issued?t("הורדת התעודה שלי","Download my certificate"):t("הורדת תעודה לדוגמה","Download sample certificate");
+
  $("certDescription").textContent=[data.number?t("תעודת הוקרה דו־לשונית","Bilingual certificate of dedication"):t("תעודה לדוגמה · עברית ואנגלית","Sample certificate · Hebrew and English"), data.name, data.occasion?(lang==="he"?he:en)[data.occasion]:"",data.dedication].filter(Boolean).join(" · ");
  window.NegbaCertificate.draw($("certCanvas"),data);
 }
 function total(){const extra=Number($("extra").value)||0;return 100+(+$("tree").checked)*50+(+$("paper").checked)*20+extra;}
 function form(){
  const live=!!stats?.live, ready=!!stats;
+ $("giftNoteWrap").hidden=!$("paper").checked;
+ $("deliveryInfo").textContent=$("paper").checked?t("בחרתם במשלוח תעודה מודפסת באריזת מתנה. לאחר אישור התרומה יישלח לתורם אישור הזמנה במייל.","You selected a printed certificate in a gift package. The donor will receive an order confirmation by email after payment."):t("המסלול הדיגיטלי כלול בתרומה. לאחר אישור התשלום נשלח אוטומטית את התעודה כקובץ PDF למייל של התורם.","Digital delivery is included. After confirmed payment, we automatically email the PDF certificate to the donor.");
  $("postalWrap").hidden=!(live && $("paper").checked);$("postal").required=!$("postalWrap").hidden;
  $("name").required=live;$("giftTotal").textContent=money(total());
  $("terms").textContent=stats?.terms?.[lang]||"";$("terms").hidden=!live;
@@ -100,6 +102,7 @@ function share(){
 function render(){
  document.documentElement.lang=lang;document.documentElement.dir=lang==="he"?"rtl":"ltr";
  document.querySelectorAll("[data-k]").forEach(el=>el.textContent=txt(el.dataset.k));
+ document.querySelectorAll("a.brand").forEach(a=>a.href="../?lang="+lang);
  document.title=txt("title")+" | "+txt("brand");$("lang").textContent=t("English","עברית");$("lang").setAttribute("aria-label",$("lang").textContent);
  $("name").placeholder=t("למשל, משפחת כהן","e.g. The Cohen family");$("ded").placeholder=t("לכבוד, לזכר או בהוקרה…","In honour, in memory, or in gratitude…");
  renderStats();form();preview();share();questions();$("sourceEn").hidden=lang==="he";
@@ -132,7 +135,7 @@ $("giftForm").onsubmit=async e=>{
  }else{
  purchaseKey ||= {id:crypto.randomUUID(),secret:crypto.randomUUID()};
  sessionStorage.setItem("negba-gift-"+purchaseKey.id,purchaseKey.secret);
- const r=await api("/checkout",{...purchaseKey,email:$("email").value,name:$("name").value,dedication:$("ded").value,occasion:$("occasion").value,tree:$("tree").checked,paper:$("paper").checked,postal:$("postal").value,extra:+$("extra").value,team:ref,lang,terms:stats.terms[lang],accept:$("consent").checked});
+ const r=await api("/checkout",{...purchaseKey,email:$("email").value,name:$("name").value,dedication:$("ded").value,occasion:$("occasion").value,tree:$("tree").checked,paper:$("paper").checked,postal:$("postal").value,giftNote:$("paper").checked?$("giftNote").value:"",extra:+$("extra").value,team:ref,lang,terms:stats.terms[lang],accept:$("consent").checked});
  location.assign(r.url);
  }
  }catch(err){failure("giftMsg",err);}finally{submittingGift=false;form();}
@@ -142,14 +145,11 @@ async function returnFromPayment(){
  if(url.searchParams.get("cancel")){feedback("giftMsg","חזרתם מתהליך התשלום. בדקו את מצב העסקה אצל ספק התשלום לפני ניסיון נוסף.","You returned from checkout. Check the payment status before trying again.");return;}
  const secret=sessionStorage.getItem("negba-gift-"+id);
  if(!secret){feedback("giftMsg","פתחו את עמוד האישור באותה לשונית שבה בוצעה התרומה, או פנו לעמותה לקבלת התעודה.","Open this confirmation in the tab used to donate, or contact the association for your certificate.");return;}
- try{issued=await api("/certificate",{id,secret});await refresh();feedback("giftMsg","תודה! התרומה אושרה והתעודה מוכנה להורדה.","Thank you! Your donation is confirmed and your certificate is ready.");$("preview").scrollIntoView();}
+ try{issued=await api("/certificate",{id,secret});await refresh();const sent=issued.delivery==="accepted";
+ if(issued.paper)feedback("giftMsg",sent?"התרומה אושרה. אישור הזמנת המתנה הועבר למשלוח במייל.":"התרומה אושרה. הזמנת אריזת המתנה נקלטה.",sent?"Your gift is confirmed and your package confirmation was submitted for email delivery.":"Your gift and package order are confirmed.");
+ else feedback("giftMsg",sent?"תודה! התעודה הועברה למשלוח למייל של התורם.":"תודה! התרומה אושרה והתעודה ממתינה למשלוח במייל.",sent?"Thank you! Your certificate was submitted for delivery to the donor’s email.":"Thank you! Your gift is confirmed and the certificate is queued for email delivery.");$("preview").scrollIntoView();}
  catch(err){failure("giftMsg",err);$("giftMsg").scrollIntoView();}
 }
-$("download").onclick=async()=>{
- const canvas=document.createElement("canvas");canvas.width=3508;canvas.height=2480;
- await window.NegbaCertificate.draw(canvas,certificateData());
- canvas.toBlob(blob=>{if(!blob)return;const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="negba-189-"+(issued?issued.number:"sample")+".png";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),3000);},"image/png");
-};
 $("enlarge").onclick=async()=>{const canvas=$("certCanvas");await window.NegbaCertificate.draw(canvas,certificateData());$("largeCert").src=canvas.toDataURL();$("largeCert").alt=$("certDescription").textContent;$("certDialog").showModal();};
 $("closeCert").onclick=()=>$("certDialog").close();
 render();refresh().then(returnFromPayment);
