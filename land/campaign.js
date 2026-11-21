@@ -7,10 +7,11 @@ lang = lang === "en" ? "en" : "he";
 let ref = url.searchParams.get("a") || "", stats = null, issued = null, createdTeam = "", checked = false;
 let submittingGift = false, submittingTeam = false, purchaseKey = null;
 const en = {
+ shortBrand:"Negba 189",unitTag:"$100 for one symbolic metre",source:"Ramban, Additions to the Book of Commandments, positive commandment 4",enlarge:"Enlarge certificate",close:"Close",occasion:"What is the occasion?",ordinary:"General dedication",bar:"Bar Mitzvah",brit:"Brit Milah",wedding:"Wedding",birthday:"Birthday",personal:"Personal dedication",previewGift:"Preview my personalised certificate",
  skip:"Skip to the participation form",brand:"Negba 189 Association",storyNav:"The initiative",ambNav:"Ambassadors",
  appeal:"The Negba 189 land campaign",title:"A Metre of Israel",lede:"Join people around the world to help Negba 189 buy a field in Israel. Our goal is 20,000 donors. A $100 gift dedicates one symbolic square metre in a name you choose.",
  dedicate:"Dedicate a metre",become:"Become an ambassador",illustration:"Illustrative agricultural landscape",
- progress:"Campaign progress",raised:"in base gifts toward $2,000,000",units:"metres dedicated out of 20,000",donors:"donors toward our goal of 20,000",progressNote:"Totals update after payment is confirmed.",
+ progress:"Campaign progress",raised:"toward the $2,000,000 goal",units:"metres dedicated out of 20,000",donors:"donors toward our goal of 20,000",progressNote:"Totals update after payment is confirmed.",
  teamHeader:"Ambassador page",copyLink:"Copy personal link",association:"An initiative of Negba 189",storyTitle:"One field, thousands of dedications",
  storyText:"The Negba 189 Association aims to purchase 20,000 m² of agricultural land in Israel at an estimated cost of ₪5 million. Funds will help cover the purchase and campaign costs. The balance will support the association’s work with brigade families.",
  use:"The association intends to hold the land in its own name. Future uses and income would serve its charitable purposes, subject to agricultural zoning and the necessary approvals.",
@@ -57,12 +58,15 @@ function questions(){
  const root=$("questions");root.replaceChildren();
  for(const [q,a] of content){const details=document.createElement("details"),summary=document.createElement("summary"),p=document.createElement("p");summary.textContent=q;p.textContent=a;details.append(summary,p);root.append(details);}
 }
+function certificateData(){
+ const occasion=issued?issued.occasion:$("occasion").value;
+ return {name:issued?.name||$("name").value.trim(),dedication:issued?issued.dedication:$("ded").value.trim(),occasion,number:issued?.number||null};
+}
 function preview(){
- $("certName").textContent=issued?.name||$("name").value.trim()||t("שם מקבל/ת ההקדשה","Recipient’s name");
- $("certDed").textContent=issued?issued.dedication:$("ded").value.trim();
- $("unitLabel").textContent=issued?t("מטר מס׳ ","Metre no. ")+String(issued.number).padStart(5,"0"):t("מספר מטר יוקצה לאחר התרומה","A metre number is assigned after donation");
- $("sample").hidden=!!issued;
- $("download").textContent=issued?t("הורדת התעודה שלי","Download my certificate"):txt("downloadSample");
+ const data=certificateData();
+ $("download").textContent=issued?t("הורדת התעודה שלי","Download my certificate"):t("הורדת תעודה לדוגמה","Download sample certificate");
+ $("certDescription").textContent=[data.number?t("תעודת הוקרה דו־לשונית","Bilingual certificate of dedication"):t("תעודה לדוגמה · עברית ואנגלית","Sample certificate · Hebrew and English"), data.name, data.occasion?(lang==="he"?he:en)[data.occasion]:"",data.dedication].filter(Boolean).join(" · ");
+ window.NegbaCertificate.draw($("certCanvas"),data);
 }
 function total(){const extra=Number($("extra").value)||0;return 100+(+$("tree").checked)*50+(+$("paper").checked)*20+extra;}
 function form(){
@@ -77,6 +81,8 @@ function form(){
 }
 function renderStats(){
  const c=stats?.campaign;
+ $("campaignCta").textContent=stats?.live?t("להקדשת מטר","Dedicate a metre"):t("הרשמה לעדכון","Get launch updates");
+ $("progressPct").textContent=c?Math.min(100,Math.floor(100*c.base/2000000))+"%":"—";
  for(const [id,val] of [["raised",c?money(c.base):"—"],["units",c?num(c.units):"—"],["donors",c?num(c.donors):"—"]]) $(id).textContent=val;
  $("phase").textContent=stats?(stats.live?t("הגיוס פתוח","Fundraising open"):t("לפני פתיחת הגבייה","Prelaunch")):checked?t("הנתונים אינם זמינים","Data unavailable"):t("מתחבר…","Connecting…");
  if(c)$("progressBar").value=c.base;else $("progressBar").removeAttribute("value");
@@ -96,7 +102,7 @@ function render(){
  document.querySelectorAll("[data-k]").forEach(el=>el.textContent=txt(el.dataset.k));
  document.title=txt("title")+" | "+txt("brand");$("lang").textContent=t("English","עברית");$("lang").setAttribute("aria-label",$("lang").textContent);
  $("name").placeholder=t("למשל, משפחת כהן","e.g. The Cohen family");$("ded").placeholder=t("לכבוד, לזכר או בהוקרה…","In honour, in memory, or in gratitude…");
- renderStats();form();preview();share();questions();
+ renderStats();form();preview();share();questions();$("sourceEn").hidden=lang==="he";
 }
 $("lang").onclick=()=>{lang=lang==="he"?"en":"he";const u=new URL(location.href);u.searchParams.set("lang",lang);history.replaceState(null,"",u);$("teamMsg").textContent="";$("giftMsg").textContent="";render();};
 async function refresh(){
@@ -126,7 +132,7 @@ $("giftForm").onsubmit=async e=>{
  }else{
  purchaseKey ||= {id:crypto.randomUUID(),secret:crypto.randomUUID()};
  sessionStorage.setItem("negba-gift-"+purchaseKey.id,purchaseKey.secret);
- const r=await api("/checkout",{...purchaseKey,email:$("email").value,name:$("name").value,dedication:$("ded").value,tree:$("tree").checked,paper:$("paper").checked,postal:$("postal").value,extra:+$("extra").value,team:ref,lang,terms:stats.terms[lang],accept:$("consent").checked});
+ const r=await api("/checkout",{...purchaseKey,email:$("email").value,name:$("name").value,dedication:$("ded").value,occasion:$("occasion").value,tree:$("tree").checked,paper:$("paper").checked,postal:$("postal").value,extra:+$("extra").value,team:ref,lang,terms:stats.terms[lang],accept:$("consent").checked});
  location.assign(r.url);
  }
  }catch(err){failure("giftMsg",err);}finally{submittingGift=false;form();}
@@ -140,18 +146,10 @@ async function returnFromPayment(){
  catch(err){failure("giftMsg",err);$("giftMsg").scrollIntoView();}
 }
 $("download").onclick=async()=>{
- const canvas=document.createElement("canvas");canvas.width=1800;canvas.height=1273;const g=canvas.getContext("2d");
- g.fillStyle="#f9f3e1";g.fillRect(0,0,1800,1273);g.strokeStyle="#a9864e";g.lineWidth=4;g.strokeRect(40,40,1720,1193);g.lineWidth=1;g.strokeRect(53,53,1694,1167);
- const logo=document.querySelector(".brand img");if(logo.complete&&logo.naturalWidth)g.drawImage(logo,822,92,156,156);
- g.textAlign="center";g.direction=lang==="he"?"rtl":"ltr";
- function draw(value,y,size,color="#244737",font="Arial"){g.fillStyle=color;g.font=size+"px "+font;g.fillText(value,900,y,1460);}
- draw(txt("brand"),330,40);draw(txt("certTitle"),475,96,"#234a3b","Georgia, serif");draw($("certName").textContent,595,56);
- const dedication=$("certDed").textContent;g.font="40px Arial";let line="",rows=[];
- for(const char of dedication.replace(/\s+/gu," ").trim()){if(char==="\n" || g.measureText(line+char).width>1380){rows.push(line);line=char==="\n"?"":char;}else line+=char;}
- if(line)rows.push(line);const step=rows.length>4?40:52;
- rows.forEach((r,i)=>draw(r,685+i*step,Math.min(40,Math.floor(240/Math.max(1,rows.length))),"#46563f"));
- draw($("unitLabel").textContent,1010,38);draw(txt("certLegal"),1110,34,"#4c5949");
- if(!issued)draw(t("דוגמה בלבד","SAMPLE ONLY"),1190,30,"#856939");
- canvas.toBlob(blob=>{if(!blob)return;const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="negba-189-"+(issued?issued.number:"sample")+".png";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1500);},"image/png");
+ const canvas=document.createElement("canvas");canvas.width=3508;canvas.height=2480;
+ await window.NegbaCertificate.draw(canvas,certificateData());
+ canvas.toBlob(blob=>{if(!blob)return;const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="negba-189-"+(issued?issued.number:"sample")+".png";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),3000);},"image/png");
 };
+$("enlarge").onclick=async()=>{const canvas=$("certCanvas");await window.NegbaCertificate.draw(canvas,certificateData());$("largeCert").src=canvas.toDataURL();$("largeCert").alt=$("certDescription").textContent;$("certDialog").showModal();};
+$("closeCert").onclick=()=>$("certDialog").close();
 render();refresh().then(returnFromPayment);
